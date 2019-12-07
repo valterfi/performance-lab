@@ -2,8 +2,12 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
     sass = require('gulp-sass'),
-    autoprefixer = require('gulp-autoprefixer'),
-    browserSync = require('browser-sync');
+    browserSync = require('browser-sync'),
+    rename = require("gulp-rename"),
+    cssnano = require("gulp-cssnano"),
+    streamify = require('gulp-streamify'),
+    uglify = require('gulp-uglify-es').default;
+
 
 var plumberErrorHandler = {
    errorHandler: notify.onError({
@@ -16,14 +20,15 @@ gulp.task('sass', function() {
    gulp.src('./sass/*.scss')
       .pipe(plumber(plumberErrorHandler))
       .pipe(sass())
-      .pipe(autoprefixer({
-         browsers: ['last 2 versions']
-      }))
+      .pipe(cssnano())
+      .pipe(rename("style.min.css"))
       .pipe(gulp.dest('./build/css'))
 });
 
 gulp.task('scripts', function(){
     gulp.src('./js/*.js')
+      .pipe(streamify(uglify()))
+      .pipe(rename({ extname: ".min.js" }))
       .pipe(gulp.dest('./build/js'))
 });
 

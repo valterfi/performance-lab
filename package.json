@@ -10,9 +10,9 @@
     "moment": "^2.14.1"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
     "browser-sync": "^2.26.7",
     "eslint": "^6.6.0",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-cssnano": "^2.1.3",
     "gulp-eslint": "^6.0.0",
@@ -20,8 +20,13 @@
     "gulp-plumber": "^1.2.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
-    "gulp-terser": "^1.2.0"
+    "gulp-streamify": "^1.0.2",
+    "gulp-terser": "^1.2.0",
+    "gulp-uglify-es": "^2.0.0"
   },
+  "browserslist": [
+    "last 2 version"
+  ],
   "author": "mandiwise",
   "license": "ISC"
 }

@@ -8,7 +8,8 @@
    $(function() {
 
       // set some initial variables
-		var neosData;
+      var neosData;
+      
       var neosTables = '';
 
       var today = moment().format('YYYY-MM-DD');
