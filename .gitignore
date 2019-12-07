@@ -12,5 +12,4 @@ env.json
 # Ignore npm packages
 node_modules/
 dist/
-build/
 
